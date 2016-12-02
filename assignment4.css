@@ -2,6 +2,25 @@
   Don't forget to style the results from the search!
   And anything elese you add to the application, for that matter.
 */
+li {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 26px;
+  list-style-type: none;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#results {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border-color: #888;
+  border-radius: 35px;
+  border-style: solid;
+  border-width: 5px;
+  color: #333;
+}
 
 .flexsearch-wrapper {
   height: auto;

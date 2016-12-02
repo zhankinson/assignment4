@@ -13,5 +13,33 @@
 
 (function() {
   // Magic!
+  $("#results").hide();
   console.log('Keepin\'n it clean with an external script!');
 })();
+
+$(function() {
+  $(".flexsearch-input").on("input", function() {
+      $("#results").html("");
+      var textInput = $(".flexsearch-input").val();
+      if(textInput.length > 0){
+        $("#results").show();
+        $.ajax({
+          dataType: "json",
+          url: "http://www.mattbowytz.com/simple_api.json?data=all",
+          success: function(response) {
+            $.each(response.data, function(key1, val1){
+              $.each(val1, function(key2, val2){
+                if(val2.toLowerCase().search(textInput) > -1){
+                  $("#results").append("<li>"+val2+"</li>");
+                }
+              })
+            })
+          }
+        });
+      }
+      else {
+        $("#results").html("");
+        $("#results").hide();
+      }
+  });
+});
